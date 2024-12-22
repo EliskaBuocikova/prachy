@@ -1,0 +1,250 @@
+/* body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+.ticket {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.column {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+}
+
+.column h3 {
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.number {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.number.selected {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #0056b3;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+} */
+
+/* --------- */
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  background-color: white;
+  margin-top: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-image: url("bubin-background.png");
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  /* Zajištění, že nic nebude mimo stránku */
+}
+
+.ticket {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Rovnoměrné rozmístění sloupečků */
+  gap: 2px;
+  /* Zmenšení mezery mezi sloupečky */
+  max-width: 100%;
+  /* Přizpůsobení šířce obrazovky */
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  /* Bílá barva s 80% neprůhledností */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.column {
+  flex: 1 1 calc(10% - 5px);
+  /* Šířka jednoho sloupečku (10 do řady) */
+  max-width: calc(9% - 5px);
+  /* Zajištění, že sloupeček nebude širší */
+  border: 1px solid #ccc;
+  padding: 0;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  /* Skrytí přetečení */
+}
+
+.column h3 {
+  margin: 0;
+  font-size: 12px;
+  /* Menší font pro nadpisy */
+  margin-bottom: 5px;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  /* Menší mezera mezi čísly */
+  justify-content: flex-start;
+  width: 100%;
+  /* Zajistí, že čísla budou vyplňovat šířku sloupečku */
+}
+
+.number {
+  width: 20px;
+  /* Zmenšená velikost čísel */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 10px;
+  /* Menší font čísel */
+  overflow: hidden;
+}
+
+
+
+.number.selected {
+  background-color: #ff0000;
+  color: #fff;
+  /* border-color: #000000; */
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 13em;
+}
+
+button:hover {
+  background-color: #ff0000;
+}
+
+@media (max-width: 768px) {
+
+  /* Na tabletech a mobilech zmenšíme některé elementy */
+  .column {
+    flex: 1 1 calc(20% - 5px);
+    /* Zvětšíme šířku sloupečků */
+  }
+
+  .number {
+    width: 16px;
+    /* Zmenšíme velikost čísel */
+    height: 16px;
+    font-size: 8px;
+  }
+
+  .ticket {
+    padding: 5px;
+  }
+
+  button {
+    font-size: 12px;
+    /* Zmenšíme velikost tlačítka */
+    margin-bottom: 13em;
+  }
+
+
+  .column h3 {
+    margin: 0;
+    font-size: 10px;
+    /* Menší font pro nadpisy */
+    margin-bottom: 5px;
+  }
+}
+
+/* Při ještě menších obrazovkách (mobilní zařízení) */
+@media (max-width: 480px) {
+  .ticket {
+    padding: 5px;
+  }
+
+  .column {
+    flex: 1 1 calc(45% - 5px);
+    /* Sloupce budou mít větší šířku */
+  }
+
+  .number {
+    width: 14px;
+    height: 14px;
+    font-size: 7px;
+  }
+
+  button {
+    font-size: 10px;
+    padding: 6px 12px;
+    /* Zmenšíme tlačítka */
+    margin-bottom: 13em;
+  }
+
+
+  .column h3 {
+    margin: 0;
+    font-size: 8px;
+    /* Menší font pro nadpisy */
+    margin-bottom: 5px;
+  }
+}
